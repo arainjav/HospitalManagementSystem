@@ -1,0 +1,513 @@
+create database HopitalMgmtSys;
+use HopitalMgmtSys;
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY not null,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50),
+    DOB date,
+    Gender VARCHAR(50),
+	Phone varchar(50),
+    Email VARCHAR(100),
+    Address VARCHAR(100),
+    city VARCHAR(100),
+    state VARCHAR(100),
+    zipcode int,
+    IsVIP bool
+);
+
+CREATE TABLE Doctors (
+    DoctorID INT PRIMARY KEY not null,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50),
+    Specialization VARCHAR(50),
+	Phone varchar(50),
+    Email VARCHAR(100),
+    HireDate varchar(50),
+    Salary VARCHAR(100)
+);
+
+CREATE TABLE Appointments (
+    AppointmentID INT PRIMARY KEY not null,
+    PatientID INT,
+	DoctorID INT,
+    AppointmentDate varchar(50),
+    Purpose varchar(500),
+    Status VARCHAR(100),
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);
+
+INSERT INTO Appointments (AppointmentID, PatientID, DoctorID, AppointmentDate, Purpose, status) 
+VALUES
+(20,36,48,32/13/2023,'Physical Therapy','In Progress'),
+(30,99,8,'abcdate','Routine Checkup','Completed'),
+(33,82,38,'abcdate','Vaccination','Completed'),
+(39,49,22,'abcdate','Vaccination','In Progress'),
+(40,83,44,'abcdate','Consultation','In Progress'),
+(52,94,41,'32/13/2023','Consultation','Pending'),
+(60,42,10,'abcdate','Routine Checkup','Completed'),
+(77,15,20,'abcdate','Routine Checkup','Completed'),
+(83,21,3,abcdate,'Vaccination','Completed'),
+(84,86,26,abcdate,Routine Checkup,In Progress),
+(95,89,31,32/13/2023,Vaccination,Cancelled),
+(100,45,13,32/13/2023,Routine Checkup,In Progress),
+(103,3,20,32/13/2023,Physical Therapy,In Progress),
+(108,14,33,abcdate,Routine Checkup,Pending),
+(158,11,45,32/13/2023,Physical Therapy,In Progress),
+(159,17,16,abcdate,Vaccination,Cancelled),
+(171,13,37,abcdate,Routine Checkup,Completed),
+(176,24,10,32/13/2023,Routine Checkup,Cancelled),
+(196,68,39,abcdate,Physical Therapy,Completed);
+
+
+CREATE TABLE Treatments (
+    TreatmentID INT PRIMARY KEY not null,
+    AppointmentID INT,
+	Description varchar(500),
+    Cost DECIMAL(10, 2),
+    FOREIGN KEY (AppointmentID) REFERENCES Appointments(AppointmentID)
+);
+
+
+
+CREATE TABLE Billing (
+    BillID INT PRIMARY KEY not null,
+    PatientID INT,
+	TreatmentID INT,
+    BillDate varchar(50),
+    TotalAmount DECIMAL(10, 2),
+    PaidStatus varchar(100),
+	FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (TreatmentID) REFERENCES Treatments(TreatmentID)
+);
+select * from Patients;
+select * from doctors;
+select * from Treatments;
+select * from Billing;
+ALTER TABLE Appointments
+ADD COLUMN Purpose varchar(500) AFTER AppointmentDate;
+select * from Appointments;
+drop table billing;
+drop table Treatments;
+drop table doctors;
+drop table Appointments;
+drop table Patients;
+
+
+INSERT INTO doctors (Doctorid, firstname, lastname, specialization, phone, email, hiredate, salary) 
+VALUES
+(5, 'Henry', 'Shelton', 'Neurology', '85293542', 'dr_elizabeth55@hospital.com', '2020-01-20', 249072),
+(25, 'Paula', 'Rhynes', 'Orthopedics', '7231120276', 'dr_jesus41@hospital.com', '2021-01-01', 170251),
+(31, 'Michelle', 'Gwin', 'Dermatology', '1256512202', 'dr_susana66@hospital.com', '2021-01-01', 225970),
+(39, 'Jason', 'Frederickson', 'Neurology', '1506489441', 'dr_vickie69@hospital.com', '2021-01-01', 200772),
+(45, 'Ali', 'Cook', 'Orthopedics', '6839604803', 'dr_sylvia88@hospital.com', '2021-01-01', 233482);
+---------------------------------
+/*Data Cleaning
+1.Find and remove duplicate patient records.
+2.Standardize email addresses to lowercase.
+3.Validate and fix invalid phone numbers and Date column
+4.Remove patients with no recorded appointments.
+5.Standardize city and state names to proper case.
+*/
+
+-- Find and remove duplicate patient records.
+select count(*) from Patients;
+select * from Patients;
+select count(*) from doctors;
+DELETE p1
+FROM Patients p1
+JOIN Patients p2
+ON p1.FirstName = p2.FirstName
+AND p1.DOB = p2.DOB
+AND p1.Phone = p2.Phone
+WHERE p1.PatientID > p2.PatientID;
+
+-- Standardize email addresses to lowercase.
+update Patients
+SET email = lower(email);
+
+update Doctors
+SET email = lower(email);
+
+-- Validate and fix invalid phone numbers and Date column
+select * from Patients;
+
+UPDATE Patients
+SET Phone = '000-0000000'
+WHERE LENGTH(Phone) < 10;
+
+UPDATE Doctors
+SET Phone = '000-000000'
+WHERE LENGTH(Phone) < 10;
+select * from Doctors;
+
+
+SELECT DISTINCT HireDate
+FROM Doctors;
+
+UPDATE Doctors
+SET HireDate = '2020-01-20'
+WHERE HireDate = '20th Jan 2020';
+
+UPDATE Doctors
+SET HireDate = '2021-01-01'
+WHERE HireDate = '01-2021';
+
+UPDATE appointments
+SET AppointmentDate = '2021-01-01'
+WHERE AppointmentDate = 'abcdate';
+select * from appointments;
+
+UPDATE appointments
+SET AppointmentDate = 'invalid'
+WHERE AppointmentDate = '32/13/2023';
+
+-- Remove patients with no recorded appointments.
+SET FOREIGN_KEY_CHECKS = 0;
+
+DELETE FROM patients
+WHERE patientid NOT IN (
+  SELECT patientid
+  FROM appointments
+);
+SET FOREIGN_KEY_CHECKS = 1;
+
+select count(*) from Patients;
+
+-- Standardize city and state names to proper case.
+UPDATE Patients
+SET city = CONCAT(UPPER(LEFT(city, 1)), LOWER(SUBSTRING(city, 2)));
+
+select * from Patients;
+UPDATE Patients
+SET City = 'Unknown'
+WHERE city is null or city = '';
+
+
+SELECT DISTINCT state
+FROM Patients;
+
+UPDATE Patients
+SET Address = 'Unknown'
+WHERE Address is null or Address = '';
+
+/*Advanced SQL
+1.Create a view to show unpaid bills with patient and billing details.
+2.Write a stored procedure to fetch all appointments for a doctor in a given period.
+3.Create a trigger to prevent the deletion of VIP patients.
+4.Create a non-clustered index on AppointmentDate in the Appointments table.
+5.Use a temporary table to store overdue bills for reporting.
+6.Use a CTE to calculate the number of appointments per patient.
+7.Write a query using a CASE statement to categorize patients by age.
+8.Implement subqueries to find patients with the highest total billing.
+9.Use a subquery to fetch patients with more than 3 treatments.
+*/
+
+-- Create a view to show unpaid bills with patient and billing details.
+select * from Patients;
+select * from billing;
+CREATE VIEW Patients_with_unpaid_bills AS
+SELECT p.patientID, p.Firstname, p.Lastname, b.PaidStatus
+FROM Billing b
+join Patients p on p.patientID=b.PatientID
+WHERE PaidStatus = 'Unpaid';
+
+-- Write a stored procedure to fetch all appointments for a doctor in a given period.
+select * from Doctors;
+select * from appointments;
+
+ALTER TABLE appointments ADD COLUMN new_date DATE;
+
+UPDATE appointments
+SET appointmentdate = '2021-01-01'
+where appointmentdate = '01-01-2021';
+
+UPDATE appointments
+SET new_date = STR_TO_DATE(appointmentdate, '%Y-%m-%d');
+
+
+
+DELIMITER $$
+CREATE PROCEDURE DrRafaelDiaz_Dec_23()
+BEGIN
+	SELECT d.Firstname, d.lastname, a.appointmentdate
+	FROM Doctors d
+	join appointments a on a.doctorid=d.doctorid
+	WHERE d.firstname='Rafael'
+    and
+    a.new_date between '2023-12-01' and '2023-12-31';
+END $$
+
+CALL DrRafaelDiaz_Dec_23();
+
+-- Create a trigger to prevent the deletion of VIP patients.
+DELIMITER $$
+
+CREATE TRIGGER PreventVIPDeletion
+BEFORE DELETE ON patients
+FOR EACH ROW
+BEGIN
+	IF OLD.IsVIP = 1 THEN
+		SIGNAL SQLSTATE '45000'
+		SET message_text = 'Cannot Delete VIP Users';
+    END IF;
+END $$
+DELIMITER ;
+
+delete FROM patients WHERE patientid = 2;
+
+-- Create a non-clustered index on AppointmentDate in the Appointments table.
+
+CREATE INDEX idx_AppointmentDate_Clust ON Appointments(AppointmentDate);
+
+-- Use a temporary table to store overdue bills for reporting.
+create temporary table TempTabl_unpaid AS
+SELECT * 
+FROM billing 
+WHERE PaidStatus = 'Unpaid';
+select * from TempTabl_unpaid;
+
+-- 6.Use a CTE to calculate the number of appointments per patient.
+select * from appointments;
+
+WITH apptments_per_patient AS
+(
+	SELECT COUNT(appointmentid) as no_of_appointments, patientid
+	FROM appointments
+    GROUP BY patientid
+)
+SELECT * FROM apptments_per_patient
+where no_of_appointments>2;
+
+-- 7.Write a query using a CASE statement to categorize patients by age.
+select * from Patients;
+ALTER TABLE Patients ADD COLUMN new_DOB DATE;
+
+UPDATE Patients
+SET new_DOB = STR_TO_DATE(DOB, '%Y-%m-%d');
+
+ALTER TABLE Patients ADD COLUMN Age int;
+
+SELECT TIMESTAMPDIFF(YEAR, new_DOB, CURDATE()) AS age
+FROM Patients;
+
+UPDATE Patients
+SET age = TIMESTAMPDIFF(YEAR, new_DOB, CURDATE());
+
+select age,
+CASE WHEN age > 60 THEN 'Senior'
+WHEN age between 40 and 59 THEN 'Middle Aged'
+WHEN age between 20 and 39 THEN 'Young'
+else 'Adolescence'
+end as Age_Categorize
+from Patients
+order by Age_Categorize desc;
+
+-- 8.Implement subqueries to find patients with the highest total billing.
+SELECT * FROM billing ;
+
+SELECT p.patientid, p.firstname, p.lastname,
+    (SELECT SUM(b.totalamount) 
+     FROM billing b 
+     WHERE b.patientid = p.patientid) AS Total_Bill
+FROM 
+    patients p
+ORDER BY 
+    Total_Bill DESC;
+
+
+-- 9.Use a subquery to fetch patients with more than 3 treatments.
+select * from appointments;
+
+SELECT p.patientid, p.firstname, p.lastname,
+    (SELECT count(appointmentid) 
+     FROM appointments a 
+     WHERE a.patientid = p.patientid) AS Total_appointments
+
+where  Total_appointments > 3
+FROM patients p
+ORDER BY 
+    Total_appointments DESC
+    limit ;
+    
+SELECT patientid, firstname, lastname
+FROM patients
+WHERE patientid IN (
+    SELECT patientid
+    FROM appointments
+    GROUP BY patientid
+    HAVING COUNT(appointmentid) > 3
+);
+
+
+/*
+Data Analysis
+1.Find the total revenue generated monthly.
+2.Identify the top 5 doctors with the most appointments.
+3.Calculate the average cost of treatments by specialization.
+4.List the most common reasons for appointments.
+5.Determine the busiest day of the week for appointments.
+6.Find patients who visited multiple doctors in the same month.
+7.Calculate the age of the patients
+8.Analyze revenue trends for the past 2 years.
+9.Calculate the average time gap between a patient’s visits.
+10.Identify doctors with the highest revenue contribution.
+11.Generate a comprehensive monthly report with key metrics (appointments, revenue, etc.).
+*/
+
+-- 1.Find the total revenue generated monthly. 
+SELECT * FROM billing ;
+SELECT * FROM patients ;
+ALTER TABLE billing ADD COLUMN new_BillDate DATE;
+
+UPDATE billing
+SET new_BillDate = STR_TO_DATE(BillDate, '%Y-%m-%d');
+
+select monthname(new_billDate) AS bill_month,
+sum(totalamount) as total_revenue
+from billing
+group by monthname(new_billDate)
+order by bill_month;
+
+-- 2.Identify the top 5 doctors with the most appointments.
+select * from appointments;
+SELECT * FROM doctors ;
+SELECT d.Firstname, d.lastname, count(a.appointmentid) as No_of_appointments
+FROM Doctors d
+join appointments a on a.doctorid=d.doctorid
+group by d.Firstname, d.lastname
+order by No_of_appointments desc
+limit 5;
+
+-- 3.Calculate the average cost of treatments by specialization.
+SELECT * FROM doctors ;
+SELECT * FROM treatments ;
+select * from appointments;
+select * from billing;
+SELECT d.specialization, avg(t.cost) as cost_of_Specialization
+FROM Doctors d
+join appointments a on a.doctorid=d.doctorid
+join treatments t on t.appointmentid=a.appointmentid
+group by d.specialization
+order by cost_of_Specialization desc;
+
+-- 4.List the most common reasons for appointments
+select purpose, count(purpose) as count_purpose
+from appointments
+group by purpose
+order by count_purpose desc;
+
+-- 5.Determine the busiest day of the week for appointments.
+select count(appointmentid), dayname(new_date) as day_of_week
+from appointments
+group by day_of_week
+order by count(appointmentid)  desc
+limit 1;
+
+-- 6.Find patients who visited multiple doctors in the same month.
+SELECT * FROM doctors ;
+SELECT * FROM patients ;
+select * from appointments;
+
+select concat(p.firstname,' ', p.lastname) as PatientName, count(distinct a.doctorid) as num_of_doctors, monthname(a.appointmentdate) as appointment_month
+from patients p
+join appointments a on a.patientid=p.patientid
+group by PatientName, appointment_month
+having num_of_doctors > 1
+order by appointment_month;
+
+-- 7.Calculate the age of the patients
+select age 
+from patients;
+
+-- 8.Analyze revenue trends for the past 2 years.
+
+SELECT YEAR(new_billDate) AS bill_year, SUM(totalamount) AS total_revenue
+FROM billing
+WHERE new_billDate > '2021-12-31' 
+GROUP BY YEAR(new_billDate)
+ORDER BY bill_year;
+
+-- 9.Calculate the average time gap between a patient’s visits.
+
+WITH VisitGaps AS (
+    SELECT 
+        patientid,
+        DATEDIFF(appointmentdate, LAG(appointmentdate) OVER (PARTITION BY patientid ORDER BY appointmentdate)) AS gap_days
+    FROM 
+        appointments
+)
+SELECT 
+    AVG(gap_days) AS avg_time_gap
+FROM 
+    VisitGaps
+WHERE 
+    gap_days IS NOT NULL;
+
+
+-- 10.Identify doctors with the highest revenue contribution.
+
+SELECT d.firstname, d.lastname, sum(t.cost) as total_revenue
+FROM Doctors d
+join appointments a on a.doctorid=d.doctorid
+join treatments t on t.appointmentid=a.appointmentid
+group by d.firstname, d.lastname
+order by total_revenue desc
+limit 1;
+
+-- 11.Generate a comprehensive monthly report with key metrics (appointments, revenue, etc.)
+select * from billing;
+select * from appointments;
+SELECT * FROM treatments ;
+
+-- Total revenue per month
+select monthname(new_billdate) as Month, sum(totalamount) as total_revenue
+from billing
+group by monthname(new_billdate)
+order by total_revenue desc;
+
+
+SELECT (COUNT(CASE WHEN Paidstatus = 'unpaid' THEN 1 END) * 100.0 / COUNT(billid)) AS percent_of_unpaid_bills
+FROM billing;
+
+select t.description, sum(b.totalamount) as total_price
+from treatments t
+join billing b on b.treatmentid=t.treatmentid
+group by t.description
+order by sum(b.totalamount) desc;
+
+select monthname(new_date) as Month, count(appointmentid) as no_of_appointments
+from appointments
+group by Month
+order by no_of_appointments desc;
+-------
+-- contribution of ViP patients in total Revenue
+SELECT 
+    (SUM(CASE WHEN p.IsVip = '1' THEN b.totalamount ELSE 0 END) * 100.0 / SUM(b.totalamount)) AS vip_total_bill_percentage
+FROM 
+    billing b
+JOIN 
+    patients p ON p.patientid = b.patientid;
+    
+select count(*) as total_No_patients
+from patients;
+
+SELECT 
+    CASE 
+        WHEN age > 60 THEN 'Seniors'
+        WHEN age BETWEEN 40 AND 59 THEN 'Middle Aged'
+        WHEN age BETWEEN 20 AND 39 THEN 'Young'
+        ELSE 'Adolescence'
+    END AS Age_Categorize,
+    COUNT(*) AS Count
+FROM 
+    Patients
+GROUP BY 
+    Age_Categorize
+ORDER BY 
+    Count DESC;
+
+
+
+
+
