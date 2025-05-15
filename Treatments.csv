@@ -1,0 +1,301 @@
+﻿TreatmentID,AppointmentID,Description,Cost
+1,84,Blood Pressure Check,376.7872547
+2,109,Routine Vaccination,475.1302337
+3,77,MRI Scan,168.5749014
+4,76,Physical Therapy,169.9492338
+5,162,Blood Pressure Check,102.6931576
+6,131,MRI Scan,338.9634
+7,159,MRI Scan,158.1948687
+8,65,Routine Vaccination,439.0429987
+9,161,Routine Vaccination,441.2951408
+10,95,Blood Pressure Check,81.81821536
+11,97,MRI Scan,70.98287618
+12,190,Physical Therapy,433.147982
+13,65,MRI Scan,430.5642766
+14,63,Routine Vaccination,242.4423064
+15,133,Blood Pressure Check,253.3186104
+16,130,Physical Therapy,126.241404
+17,200,Physical Therapy,214.4104062
+18,69,Physical Therapy,116.8189632
+19,151,Blood Pressure Check,465.9462786
+20,178,MRI Scan,441.5380872
+21,117,Blood Pressure Check,111.5818265
+22,72,Physical Therapy,201.2356315
+23,118,Physical Therapy,304.0753155
+24,100,Physical Therapy,84.57185325
+25,98,Routine Vaccination,304.7163311
+26,86,MRI Scan,126.659686
+27,63,Blood Pressure Check,102.853838
+28,74,Blood Pressure Check,51.26110217
+29,94,Blood Pressure Check,159.499567
+30,183,Physical Therapy,231.3506813
+31,119,Blood Pressure Check,336.3927024
+32,184,Routine Vaccination,323.6861769
+33,39,MRI Scan,271.4539411
+34,103,Routine Vaccination,491.7698562
+35,195,MRI Scan,300.4192061
+36,126,Physical Therapy,205.6330085
+37,192,MRI Scan,220.8152231
+38,137,Physical Therapy,294.2960815
+39,151,Routine Vaccination,138.1073073
+40,38,Blood Pressure Check,267.1438776
+41,65,Physical Therapy,222.244383
+42,60,MRI Scan,83.30194192
+43,20,Physical Therapy,147.4292227
+44,119,Routine Vaccination,278.7593551
+45,17,Blood Pressure Check,108.8093628
+46,70,Physical Therapy,385.9870209
+47,9,Physical Therapy,173.3275735
+48,173,MRI Scan,469.1140952
+49,71,Routine Vaccination,117.3070195
+50,55,MRI Scan,369.1675708
+51,59,Physical Therapy,142.9676223
+52,53,Physical Therapy,82.94192207
+53,67,Physical Therapy,175.3360039
+54,11,Blood Pressure Check,150.132672
+55,127,Routine Vaccination,462.5878726
+56,16,Routine Vaccination,252.6562599
+57,55,MRI Scan,474.6452877
+58,45,MRI Scan,391.5186123
+59,166,Physical Therapy,370.7095217
+60,134,Blood Pressure Check,458.5555866
+61,60,MRI Scan,251.539623
+62,3,MRI Scan,267.0983692
+63,122,MRI Scan,96.68425143
+64,86,MRI Scan,288.8511497
+65,141,Blood Pressure Check,159.4440784
+66,188,Routine Vaccination,119.7174136
+67,44,Blood Pressure Check,392.0862919
+68,70,Routine Vaccination,322.660813
+69,115,MRI Scan,81.78078767
+70,79,Blood Pressure Check,273.8941887
+71,145,Physical Therapy,196.8103042
+72,172,MRI Scan,117.7143522
+73,40,Blood Pressure Check,325.9963985
+74,95,Physical Therapy,352.9199594
+75,53,Physical Therapy,188.9559758
+76,33,Routine Vaccination,292.3448907
+77,196,Blood Pressure Check,490.7769796
+78,12,Physical Therapy,335.5142543
+79,58,Routine Vaccination,239.4338581
+80,123,Physical Therapy,417.1343925
+81,104,Routine Vaccination,146.4692401
+82,60,MRI Scan,85.71009225
+83,111,MRI Scan,84.3612456
+84,135,Physical Therapy,93.6756347
+85,167,MRI Scan,177.5799005
+86,127,Physical Therapy,168.5005218
+87,191,MRI Scan,435.4012152
+88,73,Routine Vaccination,86.32061835
+89,81,Physical Therapy,307.7765498
+90,68,MRI Scan,213.7187489
+91,29,MRI Scan,208.4452433
+92,192,Blood Pressure Check,259.2888206
+93,23,MRI Scan,225.9039466
+94,177,MRI Scan,171.4698507
+95,162,Routine Vaccination,121.8410754
+96,192,MRI Scan,302.0378033
+97,40,Blood Pressure Check,459.5366459
+98,113,Routine Vaccination,455.3756151
+99,67,Routine Vaccination,443.0968031
+100,44,Routine Vaccination,466.3759167
+101,176,Blood Pressure Check,416.5657291
+102,152,MRI Scan,193.9557276
+103,182,Blood Pressure Check,451.8781208
+104,130,Blood Pressure Check,137.2331209
+105,35,Physical Therapy,150.9590583
+106,75,Routine Vaccination,368.4931769
+107,173,MRI Scan,246.8053649
+108,12,MRI Scan,408.5718109
+109,53,Routine Vaccination,239.4695408
+110,126,Blood Pressure Check,368.9716148
+111,196,Blood Pressure Check,229.1171937
+112,5,Physical Therapy,140.0366243
+113,153,MRI Scan,62.29944227
+114,11,Physical Therapy,215.4528201
+115,61,Physical Therapy,217.0326332
+116,67,Routine Vaccination,206.4223163
+117,167,MRI Scan,325.7377492
+118,194,Routine Vaccination,123.6264408
+119,94,Routine Vaccination,50.86102222
+120,31,Blood Pressure Check,400.0910781
+121,121,Physical Therapy,282.9652036
+122,97,Physical Therapy,400.3284682
+123,146,MRI Scan,154.4031706
+124,58,Blood Pressure Check,483.2330814
+125,121,MRI Scan,203.1728506
+126,5,Blood Pressure Check,404.3261918
+127,158,Physical Therapy,163.4602198
+128,194,Blood Pressure Check,164.5325642
+129,74,Routine Vaccination,333.9094285
+130,111,Blood Pressure Check,207.2025361
+131,10,MRI Scan,460.1931643
+132,96,MRI Scan,59.39620871
+133,152,Physical Therapy,443.4560539
+134,178,MRI Scan,195.6501004
+135,107,MRI Scan,257.0111102
+136,133,Blood Pressure Check,199.0574188
+137,149,Blood Pressure Check,426.6598521
+138,126,MRI Scan,320.1117568
+139,74,MRI Scan,410.6757483
+140,193,MRI Scan,65.49813247
+141,113,Blood Pressure Check,64.53374588
+142,92,MRI Scan,390.8007923
+143,93,Routine Vaccination,483.7535795
+144,137,Routine Vaccination,295.5978428
+145,113,Blood Pressure Check,263.1992714
+146,125,Routine Vaccination,85.82990139
+147,31,MRI Scan,96.66609669
+148,167,Routine Vaccination,449.9987975
+149,106,Blood Pressure Check,85.69939211
+150,147,Blood Pressure Check,113.3512376
+151,122,Routine Vaccination,455.4374997
+152,190,Physical Therapy,370.2000699
+153,27,Routine Vaccination,329.9893575
+154,186,MRI Scan,171.6285199
+155,13,MRI Scan,397.9509738
+156,4,Routine Vaccination,231.8877565
+157,142,MRI Scan,292.6920493
+158,194,MRI Scan,386.1066161
+159,164,Routine Vaccination,162.0736546
+160,72,MRI Scan,164.2438257
+161,193,Physical Therapy,210.5620968
+162,108,MRI Scan,98.08567104
+163,23,MRI Scan,264.7498929
+164,97,MRI Scan,427.2439118
+165,69,Blood Pressure Check,398.0067868
+166,149,Physical Therapy,117.827622
+167,112,Physical Therapy,78.78241264
+168,96,Physical Therapy,299.3883748
+169,130,Blood Pressure Check,308.1378072
+170,97,Routine Vaccination,311.2355899
+171,189,Routine Vaccination,93.56125202
+172,124,Physical Therapy,169.351537
+173,36,MRI Scan,132.8476165
+174,7,MRI Scan,264.2040145
+175,124,Routine Vaccination,471.3809305
+176,34,Routine Vaccination,372.8472806
+177,20,Physical Therapy,145.432389
+178,107,Physical Therapy,283.9759918
+179,104,Blood Pressure Check,77.56202089
+180,84,Blood Pressure Check,419.0492221
+181,43,MRI Scan,448.9167126
+182,123,Routine Vaccination,146.4546822
+183,69,Physical Therapy,137.7837229
+184,53,MRI Scan,118.6162061
+185,10,Physical Therapy,269.5667446
+186,161,MRI Scan,182.1480903
+187,137,MRI Scan,91.48210975
+188,30,Blood Pressure Check,165.9037905
+189,92,Physical Therapy,392.0446273
+190,60,Physical Therapy,468.0018019
+191,110,MRI Scan,210.8372539
+192,66,MRI Scan,347.5336742
+193,173,Routine Vaccination,367.1695333
+194,200,Routine Vaccination,183.821223
+195,17,Routine Vaccination,357.9844514
+196,78,Routine Vaccination,416.6772804
+197,70,Blood Pressure Check,67.25779168
+198,42,Routine Vaccination,196.7975762
+199,31,Physical Therapy,180.7119143
+200,152,Blood Pressure Check,409.3331186
+201,82,Routine Vaccination,116.4084377
+202,149,Physical Therapy,473.9711978
+203,32,MRI Scan,496.5354556
+204,13,MRI Scan,484.8815935
+205,4,Blood Pressure Check,53.26092027
+206,109,Physical Therapy,121.8073079
+207,82,Physical Therapy,393.6015894
+208,146,Blood Pressure Check,484.0466083
+209,186,Physical Therapy,194.0971451
+210,98,Blood Pressure Check,70.48731566
+211,78,Blood Pressure Check,367.0018659
+212,7,Routine Vaccination,148.2669904
+213,119,MRI Scan,399.8735735
+214,80,Blood Pressure Check,447.9432443
+215,22,Blood Pressure Check,314.3092594
+216,156,MRI Scan,254.496664
+217,188,MRI Scan,399.5311039
+218,181,Physical Therapy,297.414935
+219,26,MRI Scan,68.70724222
+220,55,Blood Pressure Check,329.1253929
+221,155,MRI Scan,237.6234989
+222,182,MRI Scan,390.4433322
+223,88,MRI Scan,238.9489771
+224,118,Blood Pressure Check,203.25943
+225,25,Routine Vaccination,96.92235407
+226,141,MRI Scan,333.8221665
+227,175,Blood Pressure Check,455.8496992
+228,89,Physical Therapy,68.26909441
+229,8,Physical Therapy,297.934529
+230,175,Routine Vaccination,419.1754307
+231,10,Physical Therapy,50.26111238
+232,103,MRI Scan,479.3365618
+233,7,MRI Scan,365.0165528
+234,25,Routine Vaccination,284.9666983
+235,171,Routine Vaccination,479.3442132
+236,22,Physical Therapy,286.029677
+237,37,MRI Scan,241.1596833
+238,169,MRI Scan,195.3866591
+239,132,Blood Pressure Check,84.0289317
+240,17,Physical Therapy,170.6824075
+241,22,Physical Therapy,153.4746541
+242,64,Physical Therapy,324.9324273
+243,165,MRI Scan,55.90211124
+244,35,Blood Pressure Check,169.9979642
+245,192,Physical Therapy,445.10392
+246,34,Blood Pressure Check,297.7267474
+247,64,MRI Scan,442.2312457
+248,58,MRI Scan,403.86553
+249,67,Routine Vaccination,404.9660873
+250,113,Physical Therapy,326.6927294
+251,23,Blood Pressure Check,131.6261939
+252,129,Physical Therapy,424.7190919
+253,5,Blood Pressure Check,229.6238169
+254,15,Routine Vaccination,439.9076164
+255,8,Routine Vaccination,153.226733
+256,63,Physical Therapy,105.36249
+257,13,Routine Vaccination,198.4730312
+258,13,Blood Pressure Check,414.9035563
+259,67,Physical Therapy,382.735541
+260,75,Routine Vaccination,258.0061913
+261,14,Routine Vaccination,457.9361257
+262,135,Routine Vaccination,247.2181618
+263,1,MRI Scan,262.0898248
+264,190,Routine Vaccination,334.6256349
+265,184,Physical Therapy,155.8737649
+266,175,Routine Vaccination,171.7235568
+267,21,MRI Scan,410.0445951
+268,59,MRI Scan,240.1832163
+269,179,MRI Scan,64.15780908
+270,153,MRI Scan,163.0648569
+271,18,Routine Vaccination,418.5087211
+272,77,Physical Therapy,121.1848699
+273,161,Routine Vaccination,295.3421306
+274,42,Physical Therapy,145.4400873
+275,118,MRI Scan,274.8798759
+276,19,Physical Therapy,410.2562992
+277,129,Blood Pressure Check,363.9686214
+278,37,Blood Pressure Check,431.0845868
+279,60,Blood Pressure Check,166.3149374
+280,118,Routine Vaccination,424.1352965
+281,117,Physical Therapy,354.1955936
+282,200,Routine Vaccination,224.0745776
+283,181,Physical Therapy,342.831218
+284,63,Routine Vaccination,493.5633511
+285,109,MRI Scan,319.4942101
+286,114,Routine Vaccination,126.3600103
+287,69,Physical Therapy,316.8346984
+288,158,MRI Scan,74.22949929
+289,12,Blood Pressure Check,241.3354058
+290,195,Routine Vaccination,154.4598534
+291,36,Physical Therapy,434.8077872
+292,90,Physical Therapy,456.415444
+293,97,Routine Vaccination,210.0071565
+294,80,Routine Vaccination,60.01601423
+295,88,Blood Pressure Check,237.6143062
+296,163,Blood Pressure Check,86.89463918
+297,64,Physical Therapy,138.5860894
+298,85,Routine Vaccination,458.673474
+299,178,Routine Vaccination,347.0984833
+300,68,MRI Scan,285.3683369

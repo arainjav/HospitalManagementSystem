@@ -1,0 +1,71 @@
+create database HopitalMgmtSys;
+use HopitalMgmtSys;
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY not null,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50),
+    DOB date,
+    Gender VARCHAR(50),
+	Phone varchar(50),
+    Email VARCHAR(100),
+    Address VARCHAR(100),
+    city VARCHAR(100),
+    state VARCHAR(100),
+    zipcode int,
+    IsVIP bool
+);
+
+CREATE TABLE Doctors (
+    DoctorID INT PRIMARY KEY not null,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50),
+    Specialization VARCHAR(50),
+	Phone varchar(50),
+    Email VARCHAR(100),
+    HireDate date,
+    Salary VARCHAR(100)
+);
+
+CREATE TABLE Appointments (
+    AppointmentID INT PRIMARY KEY not null,
+    PatientID INT,
+	DoctorID INT,
+    AppointmentDate date,
+    Status VARCHAR(100),
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);
+
+CREATE TABLE Treatments (
+    TreatmentID INT PRIMARY KEY not null,
+    AppointmentID INT,
+	Description varchar(500),
+    Cost DECIMAL(10, 2),
+    FOREIGN KEY (AppointmentID) REFERENCES Appointments(AppointmentID)
+);
+
+
+
+CREATE TABLE Billing (
+    BillID INT PRIMARY KEY not null,
+    PatientID INT,
+	TreatmentID INT,
+    BillDate date,
+    TotalAmount DECIMAL(10, 2),
+    PaidStatus varchar(100),
+	FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (TreatmentID) REFERENCES Treatments(TreatmentID)
+);
+select * from Patients;
+select * from doctors;
+select * from Treatments;
+select * from Billing;
+ALTER TABLE Appointments
+ADD COLUMN Purpose varchar(500) AFTER AppointmentDate;
+select * from Appointments;
+
+
+---------------------------------
+
+
+
